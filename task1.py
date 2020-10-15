@@ -7,7 +7,7 @@ greeting = "Привет всем!"
 year = 2020
 print(greeting, "сейчас", year, "год")
 
-name = input("Введите ваше имя: ")
-surname = input("А фамилию? ")
-year_of_birth = int(input("В каком году вы родились? "))
-print(name, surname, year - year_of_birth, "годиков")
+name = input("Введите ваше имя:\n")
+surname = input("А фамилию?\n")
+year_of_birth = int(input("В каком году вы родились?\n"))
+print(f"{name} {surname}, {year - year_of_birth} годиков")
