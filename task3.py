@@ -14,7 +14,7 @@ while True:
 result_season = seasons[months.index(user_month) // 3]
 print(f"{user_month}-й месяц относится к времени года: {result_season}")
 
-print("*"*10, "\nРешение через dict")
+print("*" * 10, "\nРешение через dict")
 months = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
 seasons = ["Зима", "Весна", "Лето", "Осень"]
 my_dict = {}
