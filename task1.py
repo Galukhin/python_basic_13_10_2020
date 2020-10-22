@@ -21,15 +21,16 @@ def is_number(user_str):
 def divide(arg1, arg2):
     """
     Возвращает частное от деления
+
     :param arg1: делимое, int или float
     :param arg2: делитель, int или float
-    :return: частное, float или 'NaN'
+    :return: частное, float или None
     """
     try:
         result = arg1 / arg2
         return result
     except ZeroDivisionError:
-        return 'NaN'
+        return None
 
 
 while True:
@@ -43,7 +44,7 @@ while True:
         break
     print('Аргументы должны быть числом!')
 result = divide(float(arg1), float(arg2))
-if result == 'NaN':
+if result == None:
     print('Делить на ноль нельзя!')
 else:
     print('Результат деления:', result)
