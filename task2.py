@@ -12,5 +12,5 @@ while True:
         break
     except ValueError:
         print('Неверно введенные данные')
-result_list = [user_list[idx] for idx in my_range(len(user_list)) if user_list[idx] > user_list[idx-1]]
+result_list = [user_list[idx] for idx in my_range(len(user_list), 1) if user_list[idx] > user_list[idx-1]]
 print('Результат:', result_list)
