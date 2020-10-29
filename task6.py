@@ -17,10 +17,12 @@ result_dict = {}
 with open('task6.txt', 'r', encoding='UTF-8') as my_file:
     while True:
         dict_itm = my_file.readline().split(':')
-        if not dict_itm[0]
+        if not dict_itm[0]:
             break
         hours = ''
         for itm in dict_itm[1]:
             if itm.isdigit() or itm == ' ':
-            hours += itm
+                hours += itm
         hours_list = list(my_map(int, hours.split()))
+        result_dict.update({dict_itm[0]: my_sum(hours_list)})
+print(result_dict)
