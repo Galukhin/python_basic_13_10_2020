@@ -12,21 +12,23 @@ from random import randint
 
 
 class Car:
+    collection = []
 
     def __init__(self, color, name, is_police):
-        self.speed = randint(0, 200)
         self.color = color
-        self. name = name
+        self.name = name
         self.is_police = is_police
+        self.speed = randint(0, 200)
+        self.collection.append(self)
 
     def go(self):
-        print('Машина поехала')
+        print(f'{self.color} {self.name} поехал')
 
     def stop(self):
-        print('Машина остановилась')
+        print(f'{self.color} {self.name} остановился')
 
     def turn(self, direction):
-        print('Машина поехала', direction)
+        print(f'{self.color} {self.name} повернул {direction}')
 
     def show_speed(self):
         print('Текущая скорость автомобиля:', self.speed)
@@ -38,11 +40,55 @@ class TownCar(Car):
         super().__init__(color, name, is_police=False)
 
     def show_speed(self):
-        Car.show_speed(self)
+        super().show_speed()
         if self.speed > 60:
             print('Нарушаете скоростной режим!')
 
 
-my_car = TownCar('blue', 'Kia Rio')
-print(my_car.speed, my_car.is_police)
-my_car.show_speed()
+class WorkCar(Car):
+
+    def __init__(self, color, name):
+        super().__init__(color, name, is_police=False)
+
+    def show_speed(self):
+        super().show_speed()
+        if self.speed > 40:
+            print('Нарушаете скоростной режим!')
+
+
+class SportCar(Car):
+
+    def __init__(self, color, name):
+        super().__init__(color, name, is_police=False)
+
+
+class PoliceCar(Car):
+
+    def __init__(self, color, name):
+        super().__init__(color, name, is_police=True)
+
+
+def get_instance_attributes(instance):
+    print(f'Имя: {instance.name}')
+    print(f'Цвет: {instance.color}')
+    print(f'Полицейская?: {instance.is_police}')
+    print(f'Скорость: {instance.speed}')
+
+
+def call_instance_methods(instance):
+    instance.go()
+    instance.turn('left')
+    instance.turn('right')
+    instance.show_speed()
+    instance.stop()
+
+
+if __name__ == '__main__':
+    my_town_car = TownCar('black', 'Kia Rio')
+    my_work_car = WorkCar('brown', 'Belarus')
+    my_sport_car = SportCar('red', 'Lamborghini')
+    my_police_car = PoliceCar('white-blue', 'Nissan')
+
+    for itm in Car.collection:
+        get_instance_attributes(itm)
+        call_instance_methods(itm)
