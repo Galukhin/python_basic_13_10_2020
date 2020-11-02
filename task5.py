@@ -19,19 +19,27 @@ class Stationery:
 class Pen(Stationery):
 
     def draw(self):
-        print(self.title)
+        print(f'Привет, это {self.title}!')
         super().draw()
 
 
 class Pencil(Stationery):
 
     def draw(self):
-        print(self.title)
+        print(f'Здорово, а это {self.title}!')
         super().draw()
 
 
 class Handle(Stationery):
 
     def draw(self):
-        print(self.title)
+        print(f'А вот и я, {self.title}!')
         super().draw()
+
+
+my_pen = Pen('Ручка')
+my_pencil = Pencil('Карандаш')
+my_handle = Handle('Маркер')
+my_pen.draw()
+my_pencil.draw()
+my_handle.draw()
