@@ -52,9 +52,10 @@ class Matrix:
         return Matrix(result_matrix)
 
 
-matrix1 = Matrix([[1, 2, 3], [4, 5, 6]])
-matrix2 = Matrix([[7, 8, 9], [10, 11, 12]])
-print(matrix1)
-print(matrix2)
-print(matrix1 == matrix2)
-print(matrix1 + matrix2)
+if __name__ == '__main__':
+    matrix1 = Matrix([[1, 2, 3], [4, 5, 6]])
+    matrix2 = Matrix([[7, 8, 9], [10, 11, 12]])
+    print(matrix1)
+    print(matrix2)
+    print(matrix1 == matrix2)
+    print(matrix1 + matrix2)
