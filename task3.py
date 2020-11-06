@@ -22,17 +22,14 @@
 Или, количество ячеек клетки равняется 15, количество ячеек в ряду — 5. Тогда метод make_order() вернет
 строку: *****\n*****\n*****.
 """
-from random import randint
 
 
 class Cell:
     collection = []
-    cnt_instance = 0
 
     def __init__(self, partition: int):
         self.partition = partition
         self.collection.append(self)
-        self.cnt_instance += 1
 
     def __le__(self, other):
         return self.partition <= other.partition
@@ -91,38 +88,21 @@ class Cell:
         return ''.join(result)
 
 
-if __name__ == '__main__':  # Имитация естественного отбора
-    """a1 = Cell(3)
-    a2 = Cell(5)
-    a3 = Cell(1)
-    print(a3 - a1)
-    print(a1.collection)
-    print(a3 + a1)
-    print(a2.collection)"""
-    for i in range(0, 5):
-        Cell(randint(1, 5))
-    print(Cell.collection)
-    print(Cell.collection[0] + Cell.collection[1])
-    print(Cell.collection)
-    i = 0
-    while len(Cell.collection) > 1:
-        idx1 = randint(0, len(Cell.collection) - 1)
-        idx2 = randint(0, len(Cell.collection) - 1)
-        while idx1 == idx2:
-            idx2 = randint(0, len(Cell.collection) - 1)
-        num_op = randint(0, 3)
-        print(idx1, idx2, num_op)
-        if num_op == 0:
-            a = Cell.collection[idx1] + Cell.collection[idx2]
-            print(Cell.collection)
-        elif num_op == 1:
-            Cell.collection[idx1] - Cell.collection[idx2]
-            print(Cell.collection)
-        elif num_op == 2:
-            Cell.collection[idx1] * Cell.collection[idx2]
-            print(Cell.collection)
-        else:
-            Cell.collection[idx1] + Cell.collection[idx2]
-            print(Cell.collection)
-        i += 1
-    print(Cell.collection)
+if __name__ == '__main__':
+    cell1 = Cell(25)
+    cell2 = Cell(12)
+    cell3 = Cell(10)
+    cell4 = Cell(17)
+    cell5 = Cell(2)
+    for itm in cell1.collection:
+        print(f'{itm}:\n{itm.make_order(5)}')
+    cell6 = cell1 + cell2
+    print(f'cell1 + cell2:\n{cell6.make_order(10)}')
+    print(f'cell3 - cell4:\n{cell3 - cell4}')
+    cell7 = cell4 - cell3
+    print(f'cell4 - cell3:\n{cell7.make_order(5)}')
+    cell8 = cell6 / cell7
+    print(f'cell6 / cell7:\n{cell8.make_order(5)}')
+    cell9 = cell8 * cell5
+    print(f'cell8 * cell5:\n{cell9.make_order(5)}')
+    print(cell9.collection)  # Осталась одна клетка в коллекции
