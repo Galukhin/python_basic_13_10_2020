@@ -37,7 +37,7 @@ class Matrix:
         return self.col_num == other.col_num and self.row_num == other.row_num
 
     def __add__(self, other):
-        if not isinstance(other, Matrix):
+        if not isinstance(other, type(self)):
             raise TypeError('Складывать между собой можно только матрицы!')
 
         if self != other:
