@@ -44,3 +44,10 @@ if __name__ == '__main__':
             my_date.get_full_date()
         except ValueError:
             print('Неверный формат ввода!')
+            continue
+        if not Date.valid_date(my_date.dd, my_date.mm, my_date.yy):
+            print('Неверная дата!')
+            continue
+        else:
+            print('Все отлично! Завершение программы')
+            break
