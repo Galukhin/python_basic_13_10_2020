@@ -34,19 +34,20 @@ class Complex:
             return new_complex
 
     def __str__(self):
-        result = (str(self.re), str(self.im))
+        result = str((self.re, self.im))
         return result
 
 
 if __name__ == '__main__':
     comp1 = Complex(2, 5)
+    print(comp1)
     comp2 = Complex(-3, 12)
+    print(comp2)
     try:
-        comp3 = comp1 + 2
-        comp4 = comp2 * 3
-        comp5 = comp1 + comp2
-        comp6 = comp1 * comp2
-        comp = comp1 + 'comp'
+        print(comp1 + 2)
+        print(comp2 * 3)
+        print(comp1 + comp2)
+        print(comp1 * comp2)
+        print(comp1 + 'comp')
     except TypeError as err:
         print(err)
-    print(comp1, comp2, comp3, comp4, comp5, comp6)
